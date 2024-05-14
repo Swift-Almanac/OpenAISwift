@@ -36,8 +36,11 @@ public struct OpenAIEndpointModelType {
     
     public enum ChatCompletions: String, Codable {
         
+        case gpt4o = "gpt-4o"
+        case gpt4turbo = "gpt-4-turbo"
+        case gpt4o0513 = "gpt-4o-2024-05-13"
         case gpt40125 = "gpt-4-0125-preview"
-        case gpt4turbo = "gpt-4-turbo-preview"
+        case gpt4turbopreview = "gpt-4-turbo-preview"
         case gpt4vision = "gpt-4-vision-preview"
         case gpt41106 = "gpt-4-1106-preview"
         case gpt4preview = "gpt-4-preview"
@@ -56,7 +59,7 @@ public struct OpenAIEndpointModelType {
 
         
         /// A faster version of GPT-3.5 with the same capabilities. Will be updated with our latest model iteration. - 4,096 tokens
-        case gpt35Turbo = "gpt-3.5-turbo"
+        case gpt35turbo = "gpt-3.5-turbo"
     }
 
 

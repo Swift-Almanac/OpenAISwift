@@ -24,7 +24,7 @@ extension OpenAISwift {
     ///   - logitBias: Modify the likelihood of specified tokens appearing in the completion. Maps tokens (specified by their token ID in the OpenAI Tokenizer—not English words) to an associated bias value from -100 to 100. Values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.
     ///   - completionHandler: Returns an OpenAI Data Model
     public func sendChat(with messages: [ChatMessage],
-                         model: OpenAIEndpointModelType.ChatCompletions = .gpt4,
+                         model: OpenAIEndpointModelType.ChatCompletions = .gpt4o,
                          user: String? = nil,
                          temperature: Double? = 1,
                          topProbabilityMass: Double? = 0,
