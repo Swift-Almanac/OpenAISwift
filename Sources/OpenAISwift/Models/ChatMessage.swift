@@ -104,13 +104,13 @@ public struct ChatConversation: Encodable {
     let topProbabilityMass: Double?
 
     /// How many chat completion choices to generate for each input message. Optional, defaults to 1.
-    let choices: Int?
+    let n: Int?
 
     /// An array of up to 4 sequences where the API will stop generating further tokens. Optional.
     let stop: [String]?
 
     /// The maximum number of tokens to generate in the chat completion. The total length of input tokens and generated tokens is limited by the model's context length. Optional.
-    let maxTokens: Int?
+    let maxCompletionTokens: Int?
 
     /// A parameter that penalizes new tokens based on whether they appear in the text so far, between -2 and 2. Positive values increase the model's likelihood to talk about new topics. Optional if not specified by default or by user input. Optional, defaults to 0.
     let presencePenalty: Double?
@@ -135,9 +135,9 @@ public struct ChatConversation: Encodable {
         case model
         case temperature
         case topProbabilityMass = "top_p"
-        case choices = "n"
+        case n
         case stop
-        case maxTokens = "max_tokens"
+        case maxCompletionTokens = "max_completion_tokens"
         case presencePenalty = "presence_penalty"
         case frequencyPenalty = "frequency_penalty"
         case logitBias = "logit_bias"
