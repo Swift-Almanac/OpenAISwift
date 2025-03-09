@@ -31,21 +31,18 @@ public class OpenAISwift {
         let session:URLSession
         let authorizeRequest: (inout URLRequest) -> Void
         
-        public static func makeDefaultOpenAI(apiKey: String) -> Self {
+        public static func makeDefaultOpenAI(apiKey: String, orgID: String, proID: String) -> Self {
             .init(baseURL: "https://api.openai.com",
                   endpointPrivider: OpenAIEndpointProvider(source: .openAI),
                   session: .shared,
                   authorizeRequest: { request in
-                    request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+                request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+                request.addValue("\(orgID)", forHTTPHeaderField: "OpenAI-Organization")
+                request.addValue("\(proID)", forHTTPHeaderField: "OpenAI-Project")
             })
         }
     }
-    
-    @available(*, deprecated, message: "Use init(config:) instead")
-    public convenience init(authToken: String) {
-        self.init(config: .makeDefaultOpenAI(apiKey: authToken))
-    }
-    
+        
     public init(config: Config) {
         self.config = config
     }
